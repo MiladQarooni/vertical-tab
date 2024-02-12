@@ -1,0 +1,48 @@
+@charset "utf-8";
+*{
+	margin:0px;
+	padding:0px;
+}
+@font-face {
+    font-family: homa;
+    src:url(../font/BYekan+.ttf);
+}
+body{
+	font-family:homa;
+	font-size:14px;
+	
+	
+}
+
+
+ul{
+	list-style-type:none;
+	text-decoration:none;}
+a{text-decoration:none;}
+#website-container{
+	width:100%;
+	}
+.container{
+	
+	width:1170px;
+	height:auto;
+	margin:0 auto;
+	-webkit-transition:all .4s ease;
+	transition:all .4s ease;
+	margin-top:10px;
+	overflow:auto;	
+	-webkit-transition:all .5s ease;
+	transition:all .5s ease;	
+	}
+
+
+	@media only screen and (max-width:550px){
+		div.container{width:100%;}
+
+		
+	}
+		@media only screen and (max-width:350px){
+			
+			
+		}
+

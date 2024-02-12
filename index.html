@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Tab Slide Show</title>
+<link rel="stylesheet" type="text/css" href="css/css.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<style> 
+
+* {box-sizing: border-box}
+.tabslide{
+		width:80%;
+		margin-left: 10%;
+		
+					
+		}
+
+.tabslide .tab{
+		width: 25%;
+		float: left;
+		background-color:silver;
+		height: 300px;
+		border: 1px solid #ccc;
+		}
+.tabslide .tab .tablinks{
+			border: none;
+			display: block;
+			width: 100%;
+			padding: 20px 0;
+			text-align: center;
+			transition: .3s;
+			background-color: silver;
+			
+		}
+		
+.tabslide .tab .tablinks:hover{
+			background-color: dimgray;
+			color: white;
+			cursor: pointer;
+		}
+
+.tabslide .tab .tablinks:active{
+			background-color: dimgray;
+
+		}
+.tabslide .tabcontent{
+	width: 75%;	
+	border: 1px solid #ccc;
+	float: left;
+  	padding: 0px 12px; 
+	  height: 300px;
+	  display: none;
+
+}
+
+  
+  /* Show the default tab content */
+  #slideshow {
+	display: block;
+  }
+
+
+  .mySlides {display: none}
+.tabslide .tabcontent .mySlides img {vertical-align: middle;
+width: 100%;
+height: auto;}
+
+/* Slideshow container */
+.slideshow-container {
+ 
+  position: relative;
+ 
+}
+
+/* Next & previous buttons */
+.prev, .next {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  width: auto;
+  padding: 16px;
+  margin-top: -22px;
+  color: white;
+  font-weight: bold;
+  font-size: 18px;
+  transition: 0.6s ease;
+  border-radius: 0 3px 3px 0;
+  user-select: none;
+}
+
+/* Position the "next button" to the right */
+.next {
+  right: 0;
+  border-radius: 3px 0 0 3px;
+}
+
+/* On hover, add a black background color with a little bit see-through */
+.prev:hover, .next:hover {
+  background-color: rgba(0,0,0,0.8);
+}
+
+/* The dots/bullets/indicators */
+.dot {
+  cursor: pointer;
+  height: 15px;
+  width: 15px;
+  margin: 0 2px;
+  background-color: #bbb;
+  border-radius: 50%;
+  display: inline-block;
+  transition: background-color 0.6s ease;
+}
+
+.active, .dot:hover {
+  background-color: #717171;
+}
+
+/* Fading animation */
+.fade {
+  animation-name: fade;
+  animation-duration: 1.5s;
+}
+
+@keyframes fade {
+  from {opacity: .4} 
+  to {opacity: 1}
+}
+
+/*slide-number_two*/
+#myImg {
+	border-radius: 5px;
+	cursor: pointer;
+	transition: 0.3s;
+	margin-top: 20px;
+  }
+  
+  #myImg:hover {opacity: 0.7;}
+  
+  /* The Modal (background) */
+  .modal {
+	display: none; 
+	position: fixed; 
+	z-index: 1; 
+	padding-top: 100px; 
+	left: 0;
+	top: 0;
+	width: 100%; 
+	height: 100%; 
+	overflow: auto; 
+	background-color: rgb(0,0,0); 
+	background-color: rgba(0,0,0,0.9);
+  }
+  
+  /* Modal Content (image) */
+  .modal-content {
+	margin: auto;
+	display: block;
+	width: 80%;
+	max-width: 700px;
+  }
+  
+  /* Caption of Modal Image */
+  #caption {
+	margin: auto;
+	display: block;
+	width: 80%;
+	max-width: 700px;
+	text-align: center;
+	color: #ccc;
+	padding: 10px 0;
+	height: 150px;
+  }
+  
+  /* Add Animation */
+  .modal-content, #caption {  
+	-webkit-animation-name: zoom;
+	-webkit-animation-duration: 0.6s;
+	animation-name: zoom;
+	animation-duration: 0.6s;
+  }
+  
+  @-webkit-keyframes zoom {
+	from {-webkit-transform:scale(0)} 
+	to {-webkit-transform:scale(1)}
+  }
+  
+  @keyframes zoom {
+	from {transform:scale(0)} 
+	to {transform:scale(1)}
+  }
+  
+  /* The Close Button */
+  .close {
+	position: absolute;
+	top: 15px;
+	right: 35px;
+	color: #f1f1f1;
+	font-size: 40px;
+	font-weight: bold;
+	transition: 0.3s;
+  }
+  
+  .close:hover,
+  .close:focus {
+	color: #bbb;
+	text-decoration: none;
+	cursor: pointer;
+  }
+  
+.tabslide .tabcontent .image_gallery{
+	width: 40%;
+	border: 1px solid #777;
+	border-radius: 5px;
+	margin-top:20px;
+}
+
+.tabslide .tabcontent .image_gallery .galleryimg{
+	width: 100%;
+	
+}
+
+.tabslide .tabcontent .image_gallery .galleryimg img{
+	width: 100%;
+	height: auto;
+	border-top-left-radius: 5px;
+	border-top-right-radius: 5px;
+}
+
+.tabslide .tabcontent .image_gallery p{
+	padding: 15px;
+	text-align: center;
+}
+	
+	@media only screen and (max-width:1200px){
+		div.container{width:970px;}
+		
+	}
+	@media only screen and (max-width:970px){
+		div.container{width:750px;}
+			
+	}
+	@media only screen and (max-width:750px){
+		div.container{width:550px;}
+		.modal-content {
+			width: 100%;
+		  }
+		
+	}
+</style>
+</head>
+<body>
+    <div id="website-container">
+        <div class="container">
+
+            <div class="tabslide">
+                <div class="tab">
+                    <button class="tablinks" onclick="openCity(event, 'slideshow')">Slideshow</button>
+                    <button class="tablinks" onclick="openCity(event, 'slideshow_gallery')">Modal Image</button>
+                    <button class="tablinks" onclick="openCity(event, 'modalimage')">Image Gallery</button>
+                </div>
+                
+                <div id="slideshow" class="tabcontent">
+                    <div class="slideshow-container">
+
+                        <div class="mySlides fade">
+                            <img src="images/img_mountains_wide.jpg">
+                          </div>
+                          
+                          <div class="mySlides fade">
+                            <img src="images/img_nature_wide.jpg">
+                          </div>
+                          
+                          <div class="mySlides fade">
+                            <img src="images/img_snow_wide.jpg">
+                          </div>
+                          
+                        
+                        <a class="prev" onclick="plusSlides(-1)">❮</a>
+                        <a class="next" onclick="plusSlides(1)">❯</a>
+                        
+                        </div>
+                        <br>
+                        
+                        <div style="text-align:center">
+                          <span class="dot" onclick="currentSlide(1)"></span> 
+                          <span class="dot" onclick="currentSlide(2)"></span> 
+                          <span class="dot" onclick="currentSlide(3)"></span> 
+                        </div>
+                        
+                </div>
+                
+                <div id="slideshow_gallery" class="tabcontent">
+                    <img id="myImg" src="images/img_mountains_wide.jpg" alt="Snow" style="width:100%;max-width:300px">
+                    <div id="myModal" class="modal">
+                        <span class="close">&times;</span>
+                        <img class="modal-content" id="img01">
+                        <div id="caption"></div>
+                      </div>
+                </div>
+                
+                <div id="modalimage" class="tabcontent">
+                    <div class="image_gallery">
+                        <div class="galleryimg">
+                            <a target="_blank" href="images/img_mountains_wide.jpg">
+                                <img src="images/img_mountains_wide.jpg" alt="Cinque Terre" width="600" height="400">
+                            </a>
+                        </div>
+                        <p>This is test</p>
+
+                    </div>
+                </div>  
+            
+            </div>
+        </div>
+        
+    </div>
+<script>
+    function openCity(evt, cityName) {
+        // Declare all variables
+        var i, tabcontent, tablinks;
+      
+        // Get all elements with class="tabcontent" and hide them
+        tabcontent = document.getElementsByClassName("tabcontent");
+        for (i = 0; i < tabcontent.length; i++) {
+          tabcontent[i].style.display = "none";
+        }
+      
+        // Get all elements with class="tablinks" and remove the class "active"
+        tablinks = document.getElementsByClassName("tablinks");
+        for (i = 0; i < tablinks.length; i++) {
+          tablinks[i].className = tablinks[i].className.replace(" active", "");
+        }
+      
+        // Show the current tab, and add an "active" class to the link that opened the tab
+        document.getElementById(cityName).style.display = "block";
+        evt.currentTarget.className += " active";
+      } 
+
+     //first_slideshow
+      let slideIndex = 1;
+showSlides(slideIndex);
+
+function plusSlides(n) {
+  showSlides(slideIndex += n);
+}
+
+function currentSlide(n) {
+  showSlides(slideIndex = n);
+}
+
+function showSlides(n) {
+  let i;
+  let slides = document.getElementsByClassName("mySlides");
+  let dots = document.getElementsByClassName("dot");
+  if (n > slides.length) {slideIndex = 1}    
+  if (n < 1) {slideIndex = slides.length}
+  for (i = 0; i < slides.length; i++) {
+    slides[i].style.display = "none";  
+  }
+  for (i = 0; i < dots.length; i++) {
+    dots[i].className = dots[i].className.replace(" active", "");
+  }
+  slides[slideIndex-1].style.display = "block";  
+  dots[slideIndex-1].className += " active";
+}
+
+
+//Second_slideshow
+// Get the modal
+var modal = document.getElementById("myModal");
+
+// Get the image and insert it inside the modal - use its "alt" text as a caption
+var img = document.getElementById("myImg");
+var modalImg = document.getElementById("img01");
+var captionText = document.getElementById("caption");
+img.onclick = function(){
+  modal.style.display = "block";
+  modalImg.src = this.src;
+  captionText.innerHTML = this.alt;
+}
+
+// Get the <span> element that closes the modal
+var span = document.getElementsByClassName("close")[0];
+
+// When the user clicks on <span> (x), close the modal
+span.onclick = function() { 
+  modal.style.display = "none";
+}
+</script>
+</body>
+</html>
